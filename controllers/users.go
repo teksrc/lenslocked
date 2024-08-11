@@ -18,7 +18,13 @@ type Users struct{
 
 func (u Users) New(w http.ResponseWriter, r *http.Request) {
 	// Need a view to render. Later I can process some data and use it to render, like query params from email etc. 
-	u.Templates.New.Execute(w, nil)
+	// u.Templates.New.Execute(w, nil)
+
+	var data struct { // inline since only doing once
+		Email string
+	}
+	data.Email = r.FormValue("email")
+	u.Templates.New.Execute(w, data)
 }
 
 func (u Users) Create(w http.ResponseWriter, r *http.Request) {
