@@ -1,0 +1,25 @@
+/* Obviously not using this atm, but here for reminder.
+  Docs: https://v2.tailwindcss.com/docs/installation
+  Resources: https://tailwindcss.com/resources
+*/
+
+module.exports = {
+  theme: {
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
+    },
+  },
+};
