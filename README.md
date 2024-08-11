@@ -15,6 +15,7 @@
 
 ### DevTools
 
-1. Warp - rust is nice
-2. NeoVim - Thanks T.J.
-3. VSCode - when i lazy
+1. Bash - prefer over zsh for devOps reasons
+2. Warp - rust is nice
+3. NeoVim - Thanks TJ!
+4. VSCode - when i lazy... meh
