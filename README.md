@@ -19,3 +19,4 @@
 2. Warp - rust is nice
 3. NeoVim - Thanks TJ!
 4. VSCode - when i lazy... meh
+5. Insomnia - restful dark mode
