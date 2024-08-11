@@ -1,7 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/teksrc/lenslocked/controllers"
+	"github.com/teksrc/lenslocked/templates"
+	"github.com/teksrc/lenslocked/views"
+)
 
 func main() {
-	fmt.Printf("Hello Go.")
+	r := chi.NewRouter()
+
+	r.Get("/", controllers.StaticHandler(views.Must(
+		views.ParseFS(templates.FS, "layout-page.gohtml", "home-page.gohtml"))))
+	r.Get("/contact", controllers.StaticHandler(views.Must(
+		views.ParseFS(templates.FS, "layout-page.gohtml", "contact-page.gohtml"))))
+	r.Get("/faq", controllers.FAQ(
+		views.Must(views.ParseFS(templates.FS, "faq.gohtml"))))
+
+	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
+		http.Error(w, "Page not found", http.StatusNotFound)
+	})
+	fmt.Println("Starting the server on :3000...")
+	http.ListenAndServe(":3000", r)
 }
